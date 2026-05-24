@@ -1,0 +1,14 @@
+all:
+  vars:
+    ansible_user: "{{ vault_ansible_user }}"
+    ansible_port: 22
+  children:
+    management:
+      hosts:
+        slt-01:
+        k3s-man-01:
+    k3s:
+      hosts:
+        k3s-man-01:
+        k3s-wrk-01:
+        k3s-wrk-02:
