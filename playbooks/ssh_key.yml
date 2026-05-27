@@ -1,0 +1,22 @@
+---
+- name: Push ssh keys to hosts
+  hosts: all
+  become: true
+
+  tasks:
+    - name: create .ssh dir if needed
+      file:
+        path: /home/{{ vault_ansible_user }}/.ssh
+        state: directory
+        mode: '0700'
+        owner: "{{ vault_ansible_user }}"
+        group: "{{ vault_ansible_user }}"
+
+    - name: Push ssh keys
+      authorized_key:
+        user: "{{ vault_ansible_user }}"
+        state: present
+        key: "{{ lookup('file', '~/.ssh/id_ed25519.pub') }}"
+
+
+

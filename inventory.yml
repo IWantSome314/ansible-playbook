@@ -12,3 +12,24 @@ all:
         k3s-man-01:
         k3s-wrk-01:
         k3s-wrk-02:
+    media:
+      hosts:
+        radarr:
+        sonarr:
+        jellyfin:
+        qbit:
+        jackett:
+        overseer:
+    monitoring:
+      hosts:
+        grafana:
+        influxdb:
+        patchmon:
+    network:
+      hosts:
+        pihole:
+        myspeed:
+    dashboards:
+      hosts:
+        homepage:
+
